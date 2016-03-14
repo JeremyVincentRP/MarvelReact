@@ -10,10 +10,11 @@ import {marvelActions} from '../actions/actions.js'
 export const MarvelList = ({loading, characters, dispatch, ...props}) => {
 
   if (loading) return <div>... Loading Characters</div>
-  
+
   const charactersTab = characters.results
 
-  const handleDetail = (id) => {
+  const handleDetail = (id, e) => {
+    e.preventDefault()
     dispatch(marvelActions.fetchOne(id))
   }
 

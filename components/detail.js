@@ -13,7 +13,8 @@ export const MarvelDetail = ({loading, character, dispatch, ...props}) => {
 
   const char = character.results[0]
 
-  const handleReturn = () => {
+  const handleReturn = (e) => {
+    e.preventDefault()
     dispatch(marvelActions.fetchAll())
   }
 

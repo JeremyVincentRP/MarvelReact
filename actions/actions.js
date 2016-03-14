@@ -5,7 +5,7 @@ export const CHARACTER_LOADED  = 'CHARACTER_LOADED'
 import fetch from 'isomorphic-fetch'
 import MD5 from 'crypto-js/md5'
 
-import { push } from 'react-router-redux'
+import { push, goBack } from 'react-router-redux'
 
 ////////////////////////////////////////////////////////////////////////////////
 export function loading() {
@@ -39,7 +39,7 @@ function fetchCharacters(url) {
 const charactersUrl = 'http://gateway.marvel.com:80/v1/public/characters'
 export function fetchAllCharacters() {
   return (dispatch, getState) => {
-    dispatch(push('/'))
+    dispatch(goBack())
     dispatch(loading())
     dispatch(fetchCharacters(getFetchUrl(charactersUrl)))
   }
