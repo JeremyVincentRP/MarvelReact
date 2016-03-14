@@ -1,5 +1,5 @@
 import {
-  LOAD_CHARACTERS,
+  LOADING,
   CHARACTERS_LOADED,
   CHARACTER_LOADED,
 } from '../actions/actions'
@@ -8,13 +8,12 @@ import {
 const initialState = {
   characters: [],
   loading: false,
-  view: 'list'
 }
 //////////////////////
 
 export default function reducer (state = initialState, action) {
   switch(action.type) {
-    case LOAD_CHARACTERS:
+    case LOADING:
       return {
         ...state,
         loading: true,
@@ -24,13 +23,12 @@ export default function reducer (state = initialState, action) {
         ...state,
         characters: action.characters,
         loading: false,
-        view: action.view,
       }
     case CHARACTER_LOADED:
       return {
         ...state,
         character: action.character,
-        view: action.view,
+        loading: false,
       }
     default:
       return state

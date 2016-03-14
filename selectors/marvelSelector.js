@@ -1,15 +1,27 @@
 import { createSelector } from 'reselect'
 
-const characters = state => state.characters.data
+const characters = state => state.MarvelReducer.characters.data
+const character = state => state.MarvelReducer.character && state.MarvelReducer.character.data
+const loading = state => state.MarvelReducer.loading
+
 const state = state => state
 
-const allCharacters = createSelector(
+export const allCharactersSelector = createSelector(
   characters,
-  state,
-  (characters, state) => ({
-    ...state,
+  loading,
+  (characters, loading) => ({
     characters,
+    loading,
   })
 )
 
-export default allCharacters
+export const detailCharacterSelector = createSelector(
+  character,
+  loading,
+  (character, loading) => ({
+    character,
+    loading
+  })
+)
+
+export default allCharactersSelector
