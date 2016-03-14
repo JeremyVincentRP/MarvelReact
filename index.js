@@ -34,7 +34,7 @@ const store = createStore(
   )
 )
 
-store.dispatch(marvelActions.fetchAll())
+store.dispatch(marvelActions.fetchAll('init'))
 
 ////////////////////////////////////////////////////////////////////////////////
 // Render App

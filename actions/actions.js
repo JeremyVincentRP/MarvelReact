@@ -37,9 +37,9 @@ function fetchCharacters(url) {
 }
 
 const charactersUrl = 'http://gateway.marvel.com:80/v1/public/characters'
-export function fetchAllCharacters() {
+export function fetchAllCharacters(init) {
   return (dispatch, getState) => {
-    dispatch(goBack())
+    if (!init) dispatch(goBack())
     dispatch(loading())
     dispatch(fetchCharacters(getFetchUrl(charactersUrl)))
   }
