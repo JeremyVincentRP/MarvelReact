@@ -47,5 +47,10 @@ export const MarvelDetail = ({loading, character, dispatch, ...props}) => {
     </div>
   )
 }
+MarvelDetail.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  character: PropTypes.object.isRequired,
+  dispatch: PropTypes.func,
+}
 
 export default connect(detailCharacterSelector)(MarvelDetail)

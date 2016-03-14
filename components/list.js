@@ -42,5 +42,10 @@ export const MarvelList = ({loading, characters, dispatch, ...props}) => {
     </div>
   )
 }
+MarvelList.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  characters: PropTypes.array.isRequired,
+  dispatch: PropTypes.func,
+}
 
 export default connect(allCharactersSelector)(MarvelList)
